@@ -5,11 +5,10 @@ export class Card extends Component {
     return (
       <div class="ui card">
         <div class="image">
-          Temp icon here
           <img src="#" />
         </div>
-        <div class="content">City Name Here</div>
-        <div class="description">Temperature Here</div>
+        <div class="content">{this.props.city}</div>
+        <div class="description">Temperature: {this.props.temp}</div>
       </div>
     );
   }
