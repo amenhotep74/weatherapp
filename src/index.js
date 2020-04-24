@@ -16,16 +16,14 @@ class App extends Component {
     const API_URL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`;
     const response = await axios.get(API_URL);
     console.log(response);
-    // TEMP
-    console.log(response.data.main.temp);
-    // CITYNAME
-    console.log(response.data.name);
-    // WEATHERTYPE
-    console.log(response.data.weather[0].main);
-
+    function convertTemp(kelvin) {
+      return Math.floor(kelvin - 273.15);
+    }
+    let celsuis = convertTemp(response.data.main.temp);
+    console.log(celsuis);
     // Updating state with API data
     this.setState({
-      temp: response.data.main.temp,
+      temp: celsuis,
       city: response.data.name,
       weatherType: response.data.weather[0].main,
     });
@@ -35,6 +33,9 @@ class App extends Component {
     //   Passing state into Card.js
     return (
       <div>
+        <div class="ui input">
+          <input type="text" placeholder="Search for city..." />
+        </div>
         <Card
           weatherType={this.state.weatherType}
           temp={this.state.temp}

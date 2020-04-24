@@ -3,12 +3,20 @@ import React, { Component } from "react";
 export class Weathericon extends Component {
   render(props) {
     const weatherIcon = this.props.weatherType;
-    if (weatherIcon === "Sun") {
+    console.log("Weather component" + this.props.weatherType);
+    // Determine what icon to display depending on what the weatherType is
+    // Types: Thunderstorm, Drizzle, Rain, Snow, Clear, Clouds
+    // Unlikely Types: Mist, Smoke, Haze, Dust, Fog, Sand, Dust, Ash, Squall, Tornado
+    if (weatherIcon === "Clear") {
       return <i class="fas fa-sun fa-3x"></i>;
-    } else if (weatherIcon === "Rain") {
+    } else if (weatherIcon === "Rain" || weatherIcon === "Drizzle") {
       return <i class="fas fa-cloud-rainfa-3x"></i>;
-    } else if (weatherIcon === "Cloudy") {
+    } else if (weatherIcon === "Clouds") {
       return <i class="fas fa-cloud-sun fa-3x"></i>;
+    } else if (weatherIcon === "Thunderstorm") {
+      return <i class="fas fa-poo-storm fa-3x"></i>;
+    } else if (weatherIcon === "Snow") {
+      return <i class="fas fa-snowflake"></i>;
     } else {
       return <p>No icon found!</p>;
     }
