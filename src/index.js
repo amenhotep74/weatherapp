@@ -46,19 +46,26 @@ class App extends Component {
   render() {
     //   Passing state into Card.js
     return (
-      <div>
-        <form onSubmit={this.onFormSubmit} className="ui form">
-          <div className="field">
-            <label>Image Search</label>
-            <input type="text" onChange={this.handleChange} />
-          </div>
-          <button type="submit">Search</button>
-        </form>
-        <Card
-          weatherType={this.state.weatherType}
-          temp={this.state.temp}
-          city={this.state.city}
-        />
+      <div className="container">
+        <div>
+          <form onSubmit={this.onFormSubmit} className="ui form">
+            <div className="ui icon input">
+              <input
+                className="search-input"
+                type="text"
+                onChange={this.handleChange}
+                placeholder="Enter city"
+              />
+              <i className="search icon"></i>
+            </div>
+            {/* <button type="submit">Search</button> */}
+          </form>
+          <Card
+            weatherType={this.state.weatherType}
+            temp={this.state.temp}
+            city={this.state.city}
+          />
+        </div>
       </div>
     );
   }
