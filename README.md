@@ -7,4 +7,4 @@
 [X] GET WEATHER FROM API TO DISPLAY ONTO PAGE HARD CODED TO SEARCH FOR ADELAIDE
 [X] CONVERT TEMPERATURE
 [X] GET WEATHERTYPE ICON TO CORRECTLY DISPLAY
-[] Place input on page and get weather to retrieve
+[X] Place input on page and get weather to retrieve

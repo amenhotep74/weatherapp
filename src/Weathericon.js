@@ -10,13 +10,13 @@ export class Weathericon extends Component {
     if (weatherIcon === "Clear") {
       return <i class="fas fa-sun fa-3x"></i>;
     } else if (weatherIcon === "Rain" || weatherIcon === "Drizzle") {
-      return <i class="fas fa-cloud-rainfa-3x"></i>;
+      return <i class="fas fa-cloud-rain fa-3x"></i>;
     } else if (weatherIcon === "Clouds") {
       return <i class="fas fa-cloud-sun fa-3x"></i>;
     } else if (weatherIcon === "Thunderstorm") {
-      return <i class="fas fa-poo-storm fa-3x"></i>;
+      return <i class="fas fa-bolt fa-3x"></i>;
     } else if (weatherIcon === "Snow") {
-      return <i class="fas fa-snowflake"></i>;
+      return <i class="fas fa-snowflake fa-3x"></i>;
     } else {
       return <p>No icon found!</p>;
     }

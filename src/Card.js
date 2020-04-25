@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Weathericon from "./Weathericon";
 import "./style.css";
+
 export class Card extends Component {
   //   constructor(props) {
   //     super(props);
