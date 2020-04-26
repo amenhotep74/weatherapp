@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
 import Card from "./Card";
+import Tempbuttontoggle from "./Tempbuttontoggle";
 import "./style.css";
 
 class App extends Component {
@@ -9,11 +10,12 @@ class App extends Component {
   // Hard coded it for now
   constructor(props) {
     super(props);
-    this.state = { weatherType: null, temp: null, city: null };
+    this.state = { weatherType: null, temp: null, city: null, loading: false };
   }
 
   // Retrieve data from weather API
   getWeatherFromApi = async () => {
+    this.setState({ loading: "loading" });
     const city = this.state.city;
     const key = "5a059ff6ec9a1b593a4d3704d7581e37";
     const API_URL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`;
@@ -27,6 +29,7 @@ class App extends Component {
       temp: celsuis,
       city: response.data.name,
       weatherType: response.data.weather[0].main,
+      loading: false,
     });
   };
 
@@ -49,7 +52,7 @@ class App extends Component {
       <div className="container">
         <div>
           <form onSubmit={this.onFormSubmit} className="ui form">
-            <div className="ui icon input">
+            <div className={`ui icon input ${this.state.loading}`}>
               <input
                 className="search-input"
                 type="text"
@@ -58,6 +61,7 @@ class App extends Component {
               />
               <i className="search icon"></i>
             </div>
+            <Tempbuttontoggle />
             {/* <button type="submit">Search</button> */}
           </form>
           <Card
